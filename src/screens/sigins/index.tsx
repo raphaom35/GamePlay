@@ -27,6 +27,8 @@ export default function SingIn(){
         <ButtonIcons
          title="Entrar com discord"
          activeOpacity={0.7}/>
+
+         
       </View>
     </View>
   );
