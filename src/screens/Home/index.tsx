@@ -1,17 +1,21 @@
 import React,{useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View,FlatList,Text } from 'react-native';
+
 import { Appointment, AppointmentProps } from '../../components/Appointment';
 import ButtonAdd from '../../components/ButtonAdd';
 import CategorySelect from '../../components/CategorySelect';
 import { ListDivider } from '../../components/ListDivider';
 import ListHeader from '../../components/ListHeader';
 import Profile from '../../components/Profile';
-
+import Background from '../../components/Background';
 
  import { styles } from './styles';
 
+
  export default function Home() {
    const [category,setCategory] =useState('');
+   const navigation = useNavigation();
     const appointment =[
       {
         id:'1',
@@ -42,16 +46,23 @@ import Profile from '../../components/Profile';
     categoryId===category?setCategory(''):setCategory(categoryId);
 
    }
+   function handleAppointmentDetails() {
+    navigation.navigate('AppointmentDetails');
+  } 
+  function handleAppointmentCreate() {
+    navigation.navigate('AppointmentCreate');
+  }
   return (
-      <View>
+      <Background>
 
         <View style={styles.header}>
           <Profile/>
-          <ButtonAdd/>
+          <ButtonAdd onPress={handleAppointmentCreate} />
         </View>
         <View>
           <CategorySelect categorySelected={category} 
           setCategory={handleCategorySelect}
+          
           />
         </View>
         <View style={styles.content}>
@@ -61,16 +72,17 @@ import Profile from '../../components/Profile';
           keyExtractor={item =>item.id}
           renderItem={({item})=>(
             <Appointment data={item} 
-             
+            onPress={handleAppointmentDetails}
             />
           )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches} 
           showsVerticalScrollIndicator={false}
           
+          
           />
         </View>
-      </View>
+      </Background>
   );
 }
 

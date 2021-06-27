@@ -7,22 +7,25 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 24,    
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    marginLeft: 20
   },
   title: {
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
-    fontSize: 18,
-    marginBottom: 4,
+    fontSize: 18
   },
-  type: {
+  nameStatus: {
     fontFamily: theme.fonts.text400,
     color: theme.colors.highlight,
-    fontSize: 13,
+    fontSize: 13
+  },
+  status: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  bulletStatus: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginRight: 9
   }
 });

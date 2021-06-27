@@ -6,9 +6,7 @@ import { useNavigation } from '@react-navigation/native';
  import { styles } from './styles';
 import IlustrationImG from '../../assets/illustration.png'
 import ButtonIcons from '../../components/ButtonIcons/Index';
-
-
-
+import Background from '../../components/Background';
 
 export default function SingIn(){
   const navigation = useNavigation();
@@ -18,6 +16,7 @@ export default function SingIn(){
     navigation.navigate('Home');
   }
   return(
+    <Background>
     <View style={styles.container}>
      
       <Image source={IlustrationImG} style={styles.image} 
@@ -40,5 +39,6 @@ export default function SingIn(){
          
       </View>
     </View>
+    </Background>
   );
 }
